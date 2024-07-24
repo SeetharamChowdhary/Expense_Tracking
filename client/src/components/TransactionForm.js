@@ -15,7 +15,6 @@ const InitialForm = {
   amount: 0,
   description: "",
   date: new Date(),
-
   type: "expenses",
 };
 
@@ -81,7 +80,11 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
     <Card sx={{ minWidth: 275, marginTop: 10 }}>
       <CardContent>
         <Typography variant="h6">Add New Transaction</Typography>
-        <Box component="form" onSubmit={handleSubmit} sx={{ display: "flex" }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}
+        >
           <Autocomplete
             value={form.type}
             onChange={(event, newValue) => {
@@ -89,13 +92,13 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
             }}
             id="type"
             options={types}
-            sx={{ width: 200, marginRight: 5 }}
+            sx={{ width: 200 }}
             renderInput={(params) => (
               <TextField {...params} size="small" label="Type" />
             )}
           />
           <TextField
-            sx={{ marginRight: 5 }}
+            sx={{ width: 200 }}
             id="outlined-basic"
             label="Amount"
             type="number"
@@ -106,7 +109,7 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
             onChange={handleChange}
           />
           <TextField
-            sx={{ marginRight: 5 }}
+            sx={{ width: 200 }}
             id="outlined-basic"
             label="Description"
             size="small"
@@ -122,19 +125,25 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
               value={form.date}
               onChange={handleDate}
               renderInput={(params) => (
-                <TextField sx={{ marginRight: 5 }} size="small" {...params} />
+                <TextField sx={{ width: 200 }} size="small" {...params} />
               )}
             />
           </LocalizationProvider>
 
-          {editTransaction.amount !== undefined && (
-            <Button type="submit" variant="secondary">
+          {editTransaction.amount !== undefined ? (
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ backgroundColor: "#4caf50" }}
+            >
               Update
             </Button>
-          )}
-
-          {editTransaction.amount === undefined && (
-            <Button type="submit" variant="contained">
+          ) : (
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ backgroundColor: "#4caf50" }}
+            >
               Submit
             </Button>
           )}
