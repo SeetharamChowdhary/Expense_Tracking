@@ -15,7 +15,6 @@ import {
 import Paper from "@mui/material/Paper";
 import dayjs from "dayjs";
 import * as React from "react";
-
 export default function TransactionChart({ data }) {
   const chartData = data.map((item) => {
     item.month = dayjs()
@@ -23,18 +22,13 @@ export default function TransactionChart({ data }) {
       .format("MMMM");
     return item;
   });
-
   return (
     <Paper sx={{ marginTop: 5 }}>
       <Chart data={chartData}>
         <ArgumentScale factory={scaleBand} />
         <ArgumentAxis />
         <ValueAxis />
-        <BarSeries
-          valueField="totalExpenses"
-          argumentField="month"
-          color=" #4caf50" // Set the bar color to green
-        />
+        <BarSeries valueField="totalExpenses" argumentField="month" />
         <Animation />
         <EventTracker />
         <Tooltip />
