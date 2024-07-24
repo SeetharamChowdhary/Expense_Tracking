@@ -16,6 +16,7 @@ import { setUser } from "../store/auth.js";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -42,13 +43,18 @@ export default function Login() {
   };
 
   return (
-    <Container>
+    <Container maxWidth="sm">
+      {" "}
+      {/* Use maxWidth to ensure responsiveness */}
       <Box
         sx={{
           marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          border: "1px solid green", // Adjust border width
+          borderRadius: 1,
+          padding: 2,
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -57,7 +63,15 @@ export default function Login() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Box
+          component="form"
+          onSubmit={handleSubmit}
+          noValidate
+          sx={{
+            mt: 2,
+            width: "100%",
+          }}
+        >
           <TextField
             margin="normal"
             required
@@ -67,6 +81,10 @@ export default function Login() {
             name="email"
             autoComplete="email"
             autoFocus
+            sx={{
+              mb: 2,
+              borderRadius: 1,
+            }}
           />
           <TextField
             margin="normal"
@@ -77,12 +95,21 @@ export default function Login() {
             type="password"
             id="password"
             autoComplete="current-password"
+            sx={{
+              mb: 2,
+              borderRadius: 1,
+            }}
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{
+              mt: 2,
+              mb: 2,
+              backgroundColor: "#4caf50",
+              "&:hover": { backgroundColor: "#388e3c" },
+            }}
           >
             Sign In
           </Button>

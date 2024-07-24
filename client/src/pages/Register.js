@@ -36,13 +36,18 @@ export default function Register() {
   };
 
   return (
-    <Container>
+    <Container maxWidth="sm">
+      {" "}
+      {/* Use maxWidth to ensure responsiveness */}
       <Box
         sx={{
           marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          border: "1px solid green", // Adjust border width
+          borderRadius: 1,
+          padding: 2,
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
@@ -51,7 +56,15 @@ export default function Register() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+        <Box
+          component="form"
+          noValidate
+          onSubmit={handleSubmit}
+          sx={{
+            mt: 3,
+            width: "100%",
+          }}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -62,6 +75,7 @@ export default function Register() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                sx={{ mb: 2 }}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -72,6 +86,7 @@ export default function Register() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="family-name"
+                sx={{ mb: 2 }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -82,6 +97,7 @@ export default function Register() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                sx={{ mb: 2 }}
               />
             </Grid>
             <Grid item xs={12}>
@@ -93,6 +109,7 @@ export default function Register() {
                 type="password"
                 id="password"
                 autoComplete="new-password"
+                sx={{ mb: 2 }}
               />
             </Grid>
           </Grid>
@@ -100,7 +117,12 @@ export default function Register() {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{
+              mt: 3,
+              mb: 2,
+              backgroundColor: "#4caf50",
+              "&:hover": { backgroundColor: "#388e3c" },
+            }}
           >
             Sign Up
           </Button>
