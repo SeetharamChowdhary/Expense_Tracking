@@ -134,7 +134,11 @@ export default function TransactionForm({ fetchTransctions, editTransaction }) {
           )}
 
           {editTransaction.amount === undefined && (
-            <Button type="submit" variant="contained">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ backgroundColor: "#4caf50" }}
+            >
               Submit
             </Button>
           )}

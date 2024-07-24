@@ -28,7 +28,11 @@ export default function TransactionChart({ data }) {
         <ArgumentScale factory={scaleBand} />
         <ArgumentAxis />
         <ValueAxis />
-        <BarSeries valueField="totalExpenses" argumentField="month" />
+        <BarSeries
+          valueField="totalExpenses"
+          argumentField="month"
+          color=" #4caf50"
+        />
         <Animation />
         <EventTracker />
         <Tooltip />
